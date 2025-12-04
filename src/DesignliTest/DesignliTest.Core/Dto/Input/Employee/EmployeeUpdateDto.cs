@@ -1,26 +1,26 @@
-﻿namespace DesignliTest.Entities.Domain
+﻿namespace DesignliTest.Core.Dto.Input.Employee
 {
     /// <summary>
-    /// Represents an employee entity. Contains basic personal information.
+    /// DTO used to update an <see cref="Domain.Employee"/>.
     /// </summary>
-    public class Employee
+    public class EmployeeUpdateDto
     {
         /// <summary>
-        /// Unique identifier of the employee.
+        /// Unique identifier of the <see cref="Domain.Employee"/>.
         /// </summary>
         public int Id { get; set; }
         /// <summary>
-        /// The full name of the employee.
+        /// The full name of the <see cref="Domain.Employee"/>.
         /// </summary>
         public string Name { get; set; } = string.Empty;
 
         /// <summary>
-        /// The date of birth of the employee.
+        /// The date of birth of the <see cref="Domain.Employee"/>.
         /// </summary>
         public DateTime Birthdate { get; set; }
 
         /// <summary>
-        /// The employee’s official identification number.
+        /// The <see cref="Domain.Employee"/>’s official identification number.
         /// </summary>
         public string IdentityNumber { get; set; } = string.Empty;
     }
