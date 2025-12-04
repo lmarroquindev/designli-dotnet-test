@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DesignliTest.Core\DesignliTest.Core.csproj" />
     <ProjectReference Include="..\DesignliTest.Entities\DesignliTest.Core.csproj" />
+    <ProjectReference Include="..\DesignliTest.Infrastructure\DesignliTest.Infrastructure.csproj" />
     <ProjectReference Include="..\DesignliTest.Repositories\DesignliTest.Infrastructure.csproj" />
   </ItemGroup>
 
