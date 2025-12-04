@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignliTest.Entities", "De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignliTest.Repositories", "DesignliTest.Repositories\DesignliTest.Repositories.csproj", "{05C80D13-46A0-40EE-A04C-D6F20438AFE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignliTest.Services", "DesignliTest.Services\DesignliTest.Services.csproj", "{D47C111C-4FA7-4845-8FCD-938A3F3FE31F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D47C111C-4FA7-4845-8FCD-938A3F3FE31F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D47C111C-4FA7-4845-8FCD-938A3F3FE31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D47C111C-4FA7-4845-8FCD-938A3F3FE31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D47C111C-4FA7-4845-8FCD-938A3F3FE31F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
