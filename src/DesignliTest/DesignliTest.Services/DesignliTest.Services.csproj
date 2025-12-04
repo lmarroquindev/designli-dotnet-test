@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesignliTest.Entities\DesignliTest.Entities.csproj" />
+    <ProjectReference Include="..\DesignliTest.Repositories\DesignliTest.Repositories.csproj" />
+  </ItemGroup>
+
 </Project>
