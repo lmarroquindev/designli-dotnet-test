@@ -3,6 +3,8 @@ using DesignliTest.Infrastructure.Repository;
 using DesignliTest.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using DesignliTest.Infrastructure.InitialData;
+using DesignliTest.Core.Interface.Service;
+using DesignliTest.Application.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("Desi
 
 // DI registrations
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 
 // Add services to the container.
 builder.Services.AddControllers();
