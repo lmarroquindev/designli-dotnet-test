@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DesignliTest.Entities\DesignliTest.Entities.csproj" />
-    <ProjectReference Include="..\DesignliTest.Repositories\DesignliTest.Repositories.csproj" />
-    <ProjectReference Include="..\DesignliTest.Services\DesignliTest.Services.csproj" />
+    <ProjectReference Include="..\DesignliTest.Core\DesignliTest.Core.csproj" />
+    <ProjectReference Include="..\DesignliTest.Infrastructure\DesignliTest.Infrastructure.csproj" />
+    <ProjectReference Include="..\DesignliTest.Application\DesignliTest.Application.csproj" />
   </ItemGroup>
 
 </Project>

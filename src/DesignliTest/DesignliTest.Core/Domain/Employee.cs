@@ -1,4 +1,4 @@
-﻿namespace DesignliTest.Entities.Domain
+﻿namespace DesignliTest.Core.Domain
 {
     /// <summary>
     /// Represents an employee entity. Contains basic personal information.
