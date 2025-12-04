@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignliTest.Entities", "DesignliTest.Entities\DesignliTest.Entities.csproj", "{81963CC0-4704-4EB8-8C48-FDF5A7A94577}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignliTest.Repositories", "DesignliTest.Repositories\DesignliTest.Repositories.csproj", "{05C80D13-46A0-40EE-A04C-D6F20438AFE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{81963CC0-4704-4EB8-8C48-FDF5A7A94577}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81963CC0-4704-4EB8-8C48-FDF5A7A94577}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81963CC0-4704-4EB8-8C48-FDF5A7A94577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C80D13-46A0-40EE-A04C-D6F20438AFE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
