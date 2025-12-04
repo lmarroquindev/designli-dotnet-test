@@ -2,6 +2,7 @@ using DesignliTest.Core.Interface.Repository;
 using DesignliTest.Infrastructure.Repository;
 using DesignliTest.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using DesignliTest.Infrastructure.InitialData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Seed data
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    SeedData.Initialize(db);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
