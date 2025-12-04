@@ -1,13 +1,31 @@
+using DesignliTest.Core.Interface.Repository;
+using DesignliTest.Infrastructure.Repository;
+using DesignliTest.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using DesignliTest.Infrastructure.InitialData;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// EF InMemory (Repositories project)
+builder.Services.AddScoped<DbContext, AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("DesignliDb"));
 
+// DI registrations
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+// Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Seed data
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    SeedData.Initialize(db);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
