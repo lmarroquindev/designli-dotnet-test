@@ -15,7 +15,7 @@
         /// <summary>
         /// Gets or sets the plain text password of the user.
         /// </summary>
-        /// <remarks>For this challenge, plain text is acceptable.</remarks>
+        /// <remarks>For this challenge, plain text is acceptable in my opinion.</remarks>
         public string Password { get; set; } = string.Empty;
     }
 }
