@@ -24,7 +24,7 @@ namespace DesignliTest.Infrastructure.Repository
         }
 
         /// <inheritdoc />
-        public async Task<IReadOnlyList<UserApp>> GetAllAsync()
+        public async Task<List<UserApp>> GetAllAsync()
         {
             var list = await _dbContext.UserApp
                                        .AsNoTracking()
