@@ -54,6 +54,19 @@ namespace DesignliTest.Api.Extensions
                 c.AddSecurityRequirement(securityRequirement);
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowWebApp", policy =>
+                {
+                    policy.WithOrigins(
+                            "https://localhost:7116",
+                            "http://localhost:7116"
+                        )
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
             return services;
         }
 
@@ -73,6 +86,7 @@ namespace DesignliTest.Api.Extensions
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("AllowWebApp");
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
