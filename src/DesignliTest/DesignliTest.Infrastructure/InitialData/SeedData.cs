@@ -27,8 +27,8 @@ namespace DesignliTest.Infrastructure.InitialData
             {
                 db.UserApp.AddRange(
                     new UserApp { Username = "admin", Password = "1234" },
-                    new UserApp { Username = "test1", Password = "abcd" },
-                    new UserApp { Username = "luis", Password = "password" }
+                    new UserApp { Username = "test1", Password = "1234" },
+                    new UserApp { Username = "luis", Password = "1234" }
                 );
 
                 db.SaveChanges();
