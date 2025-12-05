@@ -1,6 +1,9 @@
 ﻿using DesignliTest.Core.Domain;
+using DesignliTest.Core.Dto.Input.Employee;
+using DesignliTest.Core.Dto.Output.Employee;
 using DesignliTest.Core.Interface.Repository;
 using DesignliTest.Core.Interface.Service;
+using Mapster;
 
 namespace DesignliTest.Application.Service
 {
@@ -18,30 +21,33 @@ namespace DesignliTest.Application.Service
         }
 
         /// <inheritdoc/>
-        public async Task<Employee> CreateAsync(Employee employee)
+        public async Task<EmployeeOutputDto> CreateAsync(EmployeeCreateDto employee)
         {
-            await _repository.AddAsync(employee);
+            Employee entity = employee.Adapt<Employee>();
+            await _repository.AddAsync(entity);
             await _repository.SaveChangesAsync();
-            return employee;
+            return entity.Adapt<EmployeeOutputDto>();
         }
 
         /// <inheritdoc/>
-        public async Task<List<Employee>> GetAllAsync()
+        public async Task<List<EmployeeOutputDto>> GetAllAsync()
         {
-            return await _repository.GetAllAsync();
+            List<Employee> employees = await _repository.GetAllAsync();
+            return employees.Adapt<List<EmployeeOutputDto>>();
         }
         
         /// <inheritdoc/>
-        public async Task<Employee?> GetByIdAsync(int id)
+        public async Task<EmployeeOutputDto?> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            Employee employee = await _repository.GetByIdAsync(id);
+            return employee.Adapt<EmployeeOutputDto>();
         }
 
         /// <inheritdoc/>
-        public async Task UpdateAsync(Employee employee)
+        public async Task UpdateAsync(int id, EmployeeUpdateDto employee)
         {
-            Employee entity = await _repository.GetByIdAsync(employee.Id);
-            entity = employee;
+            Employee entity = await _repository.GetByIdAsync(id);
+            employee.Adapt(entity);
             await _repository.SaveChangesAsync();
         }
 
@@ -49,10 +55,6 @@ namespace DesignliTest.Application.Service
         public async Task DeleteAsync(int id)
         {
             Employee entity = await _repository.GetByIdAsync(id);
-
-            if (entity == null)
-                throw new Exception("The employee doesnt exists");
-
             await _repository.DeleteAsync(entity);
             await _repository.SaveChangesAsync();
         }
