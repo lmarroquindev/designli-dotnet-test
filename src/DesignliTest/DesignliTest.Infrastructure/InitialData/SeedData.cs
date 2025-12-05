@@ -22,6 +22,17 @@ namespace DesignliTest.Infrastructure.InitialData
 
                 db.SaveChanges();
             }
+
+            if (!db.UserApp.Any())
+            {
+                db.UserApp.AddRange(
+                    new UserApp { Username = "admin", Password = "1234" },
+                    new UserApp { Username = "test1", Password = "abcd" },
+                    new UserApp { Username = "luis", Password = "password" }
+                );
+
+                db.SaveChanges();
+            }
         }
     }
 
