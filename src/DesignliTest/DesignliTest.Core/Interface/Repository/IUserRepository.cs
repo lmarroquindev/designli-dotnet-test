@@ -20,6 +20,6 @@ namespace DesignliTest.Core.Interface.Repository
         /// Returns all users in the system.
         /// </summary>
         /// <returns>A list of <see cref="UserApp"/>.</returns>
-        Task<IReadOnlyList<UserApp>> GetAllAsync();
+        Task<List<UserApp>> GetAllAsync();
     }
 }
