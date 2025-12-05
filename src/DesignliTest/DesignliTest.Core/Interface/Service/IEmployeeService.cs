@@ -1,4 +1,6 @@
 ﻿using DesignliTest.Core.Domain;
+using DesignliTest.Core.Dto.Input.Employee;
+using DesignliTest.Core.Dto.Output.Employee;
 
 namespace DesignliTest.Core.Interface.Service
 {
@@ -11,24 +13,25 @@ namespace DesignliTest.Core.Interface.Service
         /// Create a new employee record.
         /// </summary>
         /// <param name="employee">The employee entity to create.</param>
-        Task<Employee> CreateAsync(Employee employee);
+        Task<EmployeeOutputDto> CreateAsync(EmployeeCreateDto employee);
 
         /// <summary>
         /// Get all employees.
         /// </summary>
-        Task<List<Employee>> GetAllAsync();
+        Task<List<EmployeeOutputDto>> GetAllAsync();
 
         /// <summary>
         /// Get an employee by its identifier.
         /// </summary>
         /// <param name="id">The employee identifier.</param>
-        Task<Employee?> GetByIdAsync(int id);
+        Task<EmployeeOutputDto?> GetByIdAsync(int id);
 
         /// <summary>
         /// Update an existing employee.
         /// </summary>
+        /// <param name="id">The employee identifier.</param>
         /// <param name="employee">The employee entity to update.</param>
-        Task UpdateAsync(Employee employee);
+        Task UpdateAsync(int id, EmployeeUpdateDto employee);
 
         /// <summary>
         /// Delete an employee by its identifier.

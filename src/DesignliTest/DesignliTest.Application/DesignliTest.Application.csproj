@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DesignliTest.Core\DesignliTest.Core.csproj" />
     <ProjectReference Include="..\DesignliTest.Entities\DesignliTest.Core.csproj" />
     <ProjectReference Include="..\DesignliTest.Infrastructure\DesignliTest.Infrastructure.csproj" />

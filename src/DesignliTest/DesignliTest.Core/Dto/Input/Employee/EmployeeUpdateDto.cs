@@ -6,10 +6,6 @@
     public class EmployeeUpdateDto
     {
         /// <summary>
-        /// Unique identifier of the <see cref="Domain.Employee"/>.
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
         /// The full name of the <see cref="Domain.Employee"/>.
         /// </summary>
         public string Name { get; set; } = string.Empty;
