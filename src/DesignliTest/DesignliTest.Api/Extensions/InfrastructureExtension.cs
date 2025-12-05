@@ -26,6 +26,7 @@ namespace DesignliTest.Api.Extensions
 
             //Repositories
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

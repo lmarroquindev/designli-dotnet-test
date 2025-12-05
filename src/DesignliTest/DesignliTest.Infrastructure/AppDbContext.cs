@@ -14,5 +14,16 @@ namespace DesignliTest.Infrastructure
         /// Employees table.
         /// </summary>
         public DbSet<Employee> Employees { get; set; }
+        /// <summary>
+        /// UserApp table
+        /// </summary>
+        public DbSet<UserApp> UserApp { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<UserApp>().HasKey(u => u.Username);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace DesignliTest.Api.Extensions
 {
@@ -22,8 +23,50 @@ namespace DesignliTest.Api.Extensions
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
+
+                var securityScheme = new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "Enter your JWT token below.\n\nExample: Bearer {your token}"
+                };
+
+                c.AddSecurityDefinition("Bearer", securityScheme);
+
+                var securityRequirement = new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                };
+
+                c.AddSecurityRequirement(securityRequirement);
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowWebApp", policy =>
+                {
+                    policy.WithOrigins(
+                            "https://localhost:7116",
+                            "http://localhost:7116"
+                        )
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
             return services;
         }
 
@@ -43,15 +86,16 @@ namespace DesignliTest.Api.Extensions
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("AllowWebApp");
             app.UseHttpsRedirection();
+            app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
 
             return app;
         }

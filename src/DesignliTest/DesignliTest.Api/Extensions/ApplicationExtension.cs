@@ -19,6 +19,8 @@ namespace DesignliTest.Api.Extensions
         {
             //Services
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

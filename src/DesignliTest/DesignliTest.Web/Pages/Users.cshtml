@@ -1,0 +1,22 @@
+﻿@page
+@model DesignliTest.Web.Pages.UsersModel
+@{
+}
+<h2 class="mb-4">Users List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Username</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var u in Model.Users)
+        {
+            <tr>
+                <td>@u.Username</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -28,7 +28,9 @@ namespace DesignliTest.Infrastructure.Repository
         /// <inheritdoc/>
         public async Task<List<Employee>> GetAllAsync()
         {
-            return await _dbContext.Employees.ToListAsync();
+            return await _dbContext.Employees
+                                    .AsNoTracking()
+                                    .ToListAsync();
         }
         /// <inheritdoc/>
         public async Task<Employee?> GetByIdAsync(int id)
